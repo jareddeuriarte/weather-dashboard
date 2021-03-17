@@ -1,6 +1,7 @@
 var weatherData;
 
 
+//https://api.openweathermap.org/data/2.5/weather?q=losangeles&units=imperial&appid=b38f2321fa2666ca5f377e831d6efe20
 
 // https://api.openweathermap.org/data/2.5/onecall?lat= {lat} &lon= {lon} &exclude=minutely,hourly,daily,alerts&appid=b38f2321fa2666ca5f377e831d6efe20
 
@@ -9,8 +10,8 @@ $('.goBtn').on('click', function () {
     // Grabbing the value from .searchedCity input
     var citySearch = $(".citySearch").val();
     // Concatinating searchedCity with api to create url
-    var url = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch.replaceAll(" ", "") + "&units=imperial&appid=b38f2321fa2666ca5f377e831d6efe20"
-    // console.log(url)
+    var url = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch.replaceAll(" ","+") + "&units=imperial&appid=b38f2321fa2666ca5f377e831d6efe20"
+    console.log(url)
     fetch(url)
         .then(function (response) {
             return response.json();
@@ -23,9 +24,9 @@ $('.goBtn').on('click', function () {
             $(".date").html(moment.unix(data.dt).format("MMM Do, YYYY"))
             //need to make an if statement here for the clouds. if clouds 90 then cloud, if clouds 40 then 🌤️
             // $(".clouds").html(data.name)
-            $(".temp").html("Temp: " + data.main.temp)
-            $(".humid").html("Humidity: " + data.main.temp)
-            $(".wind").html("Wind speed: " + data.wind.speed)
+            $(".temp").html("Temp: " + data.main.temp +"°F")
+            $(".humid").html("Humidity: " + data.main.humidity +"%")
+            $(".wind").html("Wind speed: " + data.wind.speed + "mph")
            
             // Concatinating second url for second api call. 
             secondUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + (data.coord.lat) + "&lon=" + (data.coord.lon) + "&exclude=minutely,hourly,alerts&appid=b38f2321fa2666ca5f377e831d6efe20"
@@ -40,9 +41,7 @@ $('.goBtn').on('click', function () {
                      //have to access the lat and lon then do another "one call" (see line 5) to pull the uv data from that call and place here omg
                      $(".uv").html("UV Index: " + data2.current.uvi)
                 })
-
         });
-
 })
 
 
