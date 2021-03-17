@@ -24,12 +24,12 @@ $('.goBtn').on('click', function () {
             $(".date").html(moment.unix(data.dt).format("MMM Do, YYYY"))
             //need to make an if statement here for the clouds. if clouds 90 then cloud, if clouds 40 then 🌤️
             // $(".clouds").html(data.name)
-            $(".temp").html("Temp: " + data.main.temp +"°F")
-            $(".humid").html("Humidity: " + data.main.humidity +"%")
-            $(".wind").html("Wind speed: " + data.wind.speed + "mph")
+            $(".temp").html("Temp: " + data.main.temp +" °F")
+            $(".humid").html("Humidity: " + data.main.humidity +" %")
+            $(".wind").html("Wind speed: " + data.wind.speed + " mph")
            
             // Concatinating second url for second api call. 
-            secondUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + (data.coord.lat) + "&lon=" + (data.coord.lon) + "&exclude=minutely,hourly,alerts&appid=b38f2321fa2666ca5f377e831d6efe20"
+            secondUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + (data.coord.lat) + "&lon=" + (data.coord.lon) + "&units=imperial&exclude=minutely,hourly,alerts&appid=b38f2321fa2666ca5f377e831d6efe20"
             console.log(secondUrl)
             // Fetching second api
             fetch(secondUrl)
@@ -40,29 +40,27 @@ $('.goBtn').on('click', function () {
                     console.log(data2)
                      //have to access the lat and lon then do another "one call" (see line 5) to pull the uv data from that call and place here omg
                      $(".uv").html("UV Index: " + data2.current.uvi)
+                     //Dates for 5 day forcast
+                     $("#day1").html(moment.unix(data2.daily[1].dt).format("MMM Do, YYYY"))
+                     $("#day2").html(moment.unix(data2.daily[2].dt).format("MMM Do, YYYY"))
+                     $("#day3").html(moment.unix(data2.daily[3].dt).format("MMM Do, YYYY"))
+                     $("#day4").html(moment.unix(data2.daily[4].dt).format("MMM Do, YYYY"))
+                     $("#day5").html(moment.unix(data2.daily[5].dt).format("MMM Do, YYYY"))
+                     // Day 1 Conditions
+                     $("#day1-temp").html(data2.daily[1].temp.day)
+                    //  $("#day1-clouds").html(data2.daily[1])
+                     $("#day1-humid").html(data2.daily[1].humidity)
+
+
+
+
+
+
+
+
                 })
         });
 })
-
-
-// fetch(secondUrl)
-//     .then(function (response2) {
-//         return response2.json();
-//     })
-//     .then(function (data2) {
-//         console.log(data2)
-//     })
-
-
-
-
-
-
-
-// Not sure i need this. 
-// for (var i = 0; i < data.length; i++) {
-//     console.log(data[i].main)
-// }
 
 
 
