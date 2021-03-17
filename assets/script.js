@@ -1,20 +1,50 @@
+var weatherData;
+
+
+
+// https://api.openweathermap.org/data/2.5/onecall?lat= {lat} &lon= {lon} &exclude=minutely,hourly,daily,alerts&appid=b38f2321fa2666ca5f377e831d6efe20
+
 // Go Button Event Listener
 $('.goBtn').on('click', function () {
     // Grabbing the value from .searchedCity input
-    var cityName = $(".cityName").val();
+    var citySearch = $(".citySearch").val();
     // Concatinating searchedCity with api to create url
-    var url = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName.replaceAll(" ", "") + "&units=imperial&appid=b38f2321fa2666ca5f377e831d6efe20"
+    var url = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch.replaceAll(" ", "") + "&units=imperial&appid=b38f2321fa2666ca5f377e831d6efe20"
     // console.log(url)
     fetch(url)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
-            for (var i = 0; i < data.length; i++) {
-                console.log(data[i].main)
+            console.log(data)
+            weatherData = data
+            $(".cityName").html(data.name)
+            //pull the date, along with the uv index, from the other api call and insert it here, unless someone can figure out how to .
+            // // $(".date").html(moment().format('MMMM Do YYYY'))
+            // $(".date").html(moment.unix(data.coord.dt).format("MMM Do, YYYY"))
+            //need to make an if statement here for the clouds. if clouds 90 then cloud, if clouds 40 then 🌤️
+            // $(".clouds").html(data.name)
+            $(".temp").html("Temp: " + data.main.temp)
+            $(".humid").html("Humidity: " + data.main.temp)
+            $(".wind").html("Wind speed: " + data.wind.speed)
+            //have to access the lat and lon then do another "one call" (see line 5) to pull the uv data from that call and place here omg
+            // $(".uv").html(data.name)      
+        });
+})
 
-                // var userName = document.createElement('h3');
+
+
+
+
+
+// Not sure i need this. 
+// for (var i = 0; i < data.length; i++) {
+//     console.log(data[i].main)
+// }
+
+
+
+    // var userName = document.createElement('h3');
                 // var issueTitle = document.createElement('h4');
                 // var issueBody = document.createElement('p');
                 // userName.textContent = data[i].user.login;
@@ -23,33 +53,12 @@ $('.goBtn').on('click', function () {
                 // issueContainer.append(userName);
                 // issueContainer.append(issueTitle);
                 // issueContainer.append(issueBody);
-            }
-        });
-
-})
-
-
-
-
-
-
-
 
 
 
 
 // var issueContainer = document.getElementById('issues');
 // var fetchButton = document.getElementById('fetch-button');
-
-// function getApi() {
-//     var requestUrl = 'https://api.github.com/repos/IBM/clai/issues?per_page=5';
-
-
-// }
-// fetchButton.addEventListener('click', getApi);
-
-
-
 
 
 
