@@ -1,0 +1,14 @@
+*{
+    font-family: 'Dosis', sans-serif;
+}
+
+header{
+    background-color: #5b8e7d;
+    text-align: center;
+    padding: 20px;
+}
+
+button{
+    background-color: #BC4B51 !important;
+    color: white !important;
+}
