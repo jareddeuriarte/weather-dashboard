@@ -1,11 +1,6 @@
 var weatherData;
 var citySearch;
 
-
-//https://api.openweathermap.org/data/2.5/weather?q=losangeles&units=imperial&appid=b38f2321fa2666ca5f377e831d6efe20
-
-// https://api.openweathermap.org/data/2.5/onecall?lat= {lat} &lon= {lon} &exclude=minutely,hourly,daily,alerts&appid=b38f2321fa2666ca5f377e831d6efe20
-
 // Go Button Event Listener
 $('.goBtn').on('click', function () {
     // Grabbing the value from .searchedCity input
@@ -20,9 +15,8 @@ $('.goBtn').on('click', function () {
     aTag.addClass("list-group-item list-group-item-action")
     $(".searchHistory").append(aTag)
     console.log(aTag);
-
-
-
+    
+// FIRST FETCH
     fetch(url)
         .then(function (response) {
             return response.json();
@@ -46,6 +40,7 @@ $('.goBtn').on('click', function () {
             // Concatinating second url for second api call. 
             secondUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + (data.coord.lat) + "&lon=" + (data.coord.lon) + "&units=imperial&exclude=minutely,hourly,alerts&appid=b38f2321fa2666ca5f377e831d6efe20"
             console.log(secondUrl)
+           
             // Fetching second api
             fetch(secondUrl)
                 .then(function (response2) {
@@ -53,6 +48,8 @@ $('.goBtn').on('click', function () {
                 })
                 .then(function (data2) {
                     console.log(data2)
+
+                    //UV Idex
                     $(".uvIndex").html("UV Index: " + data2.current.uvi);
                     if (data2.current.uvi < 3) {
                         $(".uvIndex").addClass("btn-success")
@@ -63,6 +60,7 @@ $('.goBtn').on('click', function () {
                     else {
                         $(".uvIndex").addClass("btn-danger")
                     }
+                    
                     //Dates for 5 day forcast
                     $("#day1").html(moment.unix(data2.daily[1].dt).format("MMM Do, YYYY"));
                     $("#day2").html(moment.unix(data2.daily[2].dt).format("MMM Do, YYYY"));
@@ -70,6 +68,7 @@ $('.goBtn').on('click', function () {
                     $("#day4").html(moment.unix(data2.daily[4].dt).format("MMM Do, YYYY"));
                     $("#day5").html(moment.unix(data2.daily[5].dt).format("MMM Do, YYYY"));
                     $("#day5").html(moment.unix(data2.daily[5].dt).format("MMM Do, YYYY"));
+                    
                     // Day 1 Conditions
                     $("#day1-temp").html("Temp: " + data2.daily[1].temp.day + " °F");
                     var img1 = $("<img>")
@@ -77,6 +76,11 @@ $('.goBtn').on('click', function () {
                     img1.attr('src', iconurl);
                     $("#day1-clouds").append(img1)
                     $("#day1-humid").html("Humidity: " + data2.daily[1].humidity + " %")
+                    if($(".goBtn").click)
+                    // $('.goBtn').on('click', function (){
+                    //     img1.remove()
+                    // }
+                    
                     //Day 2 Conditions
                     $("#day2-temp").html("Temp: " + data2.daily[2].temp.day + " °F")
                     var img2 = $("<img>")
@@ -84,6 +88,7 @@ $('.goBtn').on('click', function () {
                     img2.attr('src', iconurl);
                     $("#day2-clouds").append(img2)
                     $("#day2-humid").html("Humidity: " + data2.daily[2].humidity + " %")
+                    
                     // Day 3 Conditions
                     $("#day3-temp").html("Temp: " + data2.daily[3].temp.day + " °F")
                     var img3 = $("<img>")
@@ -91,6 +96,7 @@ $('.goBtn').on('click', function () {
                     img3.attr('src', iconurl);
                     $("#day3-clouds").append(img3)
                     $("#day3-humid").html("Humidity: " + data2.daily[3].humidity + " %")
+                    
                     // Day 4 Conditions
                     $("#day4-temp").html("Temp: " + data2.daily[4].temp.day + " °F")
                     var img4 = $("<img>")
@@ -98,6 +104,7 @@ $('.goBtn').on('click', function () {
                     img4.attr('src', iconurl);
                     $("#day4-clouds").append(img4)
                     $("#day4-humid").html("Humidity: " + data2.daily[4].humidity + " %")
+                    
                     //Day 5 Conditions
                     $("#day5-temp").html("Temp: " + data2.daily[5].temp.day + " °F")
                     var img5 = $("<img>")
@@ -105,10 +112,6 @@ $('.goBtn').on('click', function () {
                     img5.attr('src', iconurl);
                     $("#day5-clouds").append(img5)
                     $("#day5-humid").html("Humidity: " + data2.daily[5].humidity + " %")
-
-
-
-
 
                 })
         });
