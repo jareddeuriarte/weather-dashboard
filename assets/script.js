@@ -16,6 +16,10 @@ $('.goBtn').on('click', function () {
     $(".searchHistory").append(aTag)
     console.log(aTag);
 
+    //Setting and Getting localStorage
+    localStorage.setItem(url, aTag);
+    $(".searchHistory").val(localStorage.getItem(aTag));
+
 // FIRST FETCH
     fetch(url)
         .then(function (response) {
@@ -124,24 +128,6 @@ $('.goBtn').on('click', function () {
                 })
         });
 })
-
-
-
-    // var userName = document.createElement('h3');
-                // var issueTitle = document.createElement('h4');
-                // var issueBody = document.createElement('p');
-                // userName.textContent = data[i].user.login;
-                // issueTitle.textContent = data[i].title;
-                // issueBody.textContent = data[i].body;
-                // issueContainer.append(userName);
-                // issueContainer.append(issueTitle);
-                // issueContainer.append(issueBody);
-
-
-
-
-
-
 
 
 // GIVEN a weather dashboard with form inputs
