@@ -15,10 +15,11 @@ $('.goBtn').on('click', function () {
     aTag.addClass("list-group-item list-group-item-action")
     $(".searchHistory").append(aTag)
     console.log(aTag);
-    
+
 // FIRST FETCH
     fetch(url)
         .then(function (response) {
+            $( ".clouds" ).empty();
             return response.json();
         })
         .then(function (data) {
@@ -44,6 +45,13 @@ $('.goBtn').on('click', function () {
             // Fetching second api
             fetch(secondUrl)
                 .then(function (response2) {
+                    ///test
+                    $( "#day1-clouds" ).empty();
+                    $( "#day2-clouds" ).empty();
+                    $( "#day3-clouds" ).empty();
+                    $( "#day4-clouds" ).empty();
+                    $( "#day5-clouds" ).empty();
+                    ///test
                     return response2.json();
                 })
                 .then(function (data2) {
