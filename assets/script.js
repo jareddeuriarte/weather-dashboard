@@ -1,5 +1,6 @@
 var weatherData;
 var citySearch;
+var cityArray = []
 
 // Go Button Event Listener
 $('.goBtn').on('click', function () {
@@ -8,6 +9,8 @@ $('.goBtn').on('click', function () {
     // Concatinating searchedCity with api to create url
     var url = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch.replaceAll(" ", "+") + "&units=imperial&appid=b38f2321fa2666ca5f377e831d6efe20"
     console.log(url)
+
+
 // Appending the url to the Search History
     var aTag = $("<a>")
     aTag.attr('href', url);
@@ -16,9 +19,6 @@ $('.goBtn').on('click', function () {
     $(".searchHistory").append(aTag)
     console.log(aTag);
 
-    //Setting and Getting localStorage
-    localStorage.setItem(url, aTag);
-    $(".searchHistory").val(localStorage.getItem(aTag));
 
 // FIRST FETCH
     fetch(url)
@@ -88,10 +88,6 @@ $('.goBtn').on('click', function () {
                     img1.attr('src', iconurl);
                     $("#day1-clouds").append(img1)
                     $("#day1-humid").html("Humidity: " + data2.daily[1].humidity + " %")
-                    if($(".goBtn").click)
-                    // $('.goBtn').on('click', function (){
-                    //     img1.remove()
-                    // }
                     
                     //Day 2 Conditions
                     $("#day2-temp").html("Temp: " + data2.daily[2].temp.day + " °F")
@@ -128,16 +124,3 @@ $('.goBtn').on('click', function () {
                 })
         });
 })
-
-
-// GIVEN a weather dashboard with form inputs
-// WHEN I search for a city
-// THEN I am presented with current and future conditions for that city and that city is added to the search history
-// WHEN I view current weather conditions for that city
-// THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-// WHEN I view the UV index
-// THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-// WHEN I view future weather conditions for that city
-// THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
-// WHEN I click on a city in the search history
-// THEN I am again presented with current and future conditions for that city
