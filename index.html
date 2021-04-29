@@ -11,22 +11,24 @@
 
 <body>
 
-    <header>
-        <h1>weather app</h1>
-    </header>
-
-
+<div class="container">
+        <div class="title">weather app</div>
+   
     <!-- LOCATION SEARCH -->
-    <div class="input-group mb-3">
+    <div>
         <input type="text" class="citySearch form-control col-2 " placeholder="Enter city name"
             aria-label="Recipient's username" aria-describedby="button-addon2">
         <button class="goBtn btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
     </div>
 
+</div>
+
+
+
     <div class="row">
         <!-- SEARCH HISTORY -->
 
-        <div class="list-group col-3 searchHistory"></div>
+        <!-- <div class="list-group col-3 searchHistory"></div> -->
 
 
         <!-- CURRENT WEATHER -->
@@ -44,7 +46,7 @@
 
 
         <!-- 5 DAY FORCAST -->
-        <div class="container  col-9">
+        <div class="">
             <div class="row">
                 <div class="col-sm">
                     <h5 id="day1"></h5>
@@ -55,7 +57,7 @@
                     </ul>
                 </div>
 
-                <div class="col-sm">
+                <div class="">
                     <h5 id="day2"></h5>
                     <ul style="list-style-type:none;">
                         <li id="day2-temp"></li>

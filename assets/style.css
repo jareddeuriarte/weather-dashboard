@@ -1,11 +1,42 @@
 body {
     height: 100vh;
-    background-image: url("/images/earth.jpg");
+    /* background-image: url("/assets/images/sky.jpg"); */
+    /* background-image: url("https://i.gifer.com/srG.gif"); */
+    background-image: url("https://i.gifer.com/Lx0q.gif");
     background-size: cover;
     background-position: center center;
 }
 
 
-h1{
+.title{
     text-align: center;
+    font-size: 2.5rem;
+    padding: 0.9rem;
 }
+
+.container{
+    display:flex;
+    background-color: rgba(255, 255, 255, .99);
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, .4);
+    max-width:fit-content;
+    justify-content: center;
+    
+}
+
+
+
+/* .container{
+    display:grid;
+    place-items: center;
+    background-color: rgba(255, 255, 255, .99);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, .4);
+    max-width:fit-content;
+    
+} */
+
