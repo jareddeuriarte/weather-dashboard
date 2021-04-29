@@ -1,14 +1,11 @@
-*{
-    font-family: 'Hind', sans-serif;
+body {
+    height: 100vh;
+    background-image: url("/images/earth.jpg");
+    background-size: cover;
+    background-position: center center;
 }
 
-header{
-    background-color: #5b8e7d;
+
+h1{
     text-align: center;
-    padding: 20px;
-}
-
-button{
-    background-color: #BC4B51 !important;
-    color: white !important;
 }
