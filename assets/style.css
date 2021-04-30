@@ -5,6 +5,7 @@ body {
     background-image: url("https://i.gifer.com/Lx0q.gif");
     background-size: cover;
     background-position: center center;
+    font-family: 'Nunito', sans-serif;
 }
 
 
@@ -14,9 +15,10 @@ body {
     padding: 0.9rem;
 }
 
-.container{
+.title-container{
     display:flex;
-    background-color: rgba(255, 255, 255, .99);
+    background-color: rgba(255, 255, 255, .7);
+    margin: auto;
     border-radius: 10px;
     flex-direction: column;
     align-items: center;
@@ -29,14 +31,34 @@ body {
 
 
 
-/* .container{
-    display:grid;
-    place-items: center;
-    background-color: rgba(255, 255, 255, .99);
+.weather-card{
+    display:flex;
+    background-color: rgba(255, 255, 255, .7);
+    margin: auto;
     border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
     padding: 2rem;
     box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, .4);
     max-width:fit-content;
-    
-} */
+    justify-content: center;
+}
 
+
+.current-card{
+    flex-basis: 100
+}
+
+.five-day-card{
+    display: flex;
+    flex-direction: row;
+}
+
+h5{
+    font-size: 1rem;
+    margin:auto;
+}
+
+.day-card{
+    margin:auto;
+}

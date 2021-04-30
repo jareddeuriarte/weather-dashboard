@@ -5,95 +5,100 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">    <link rel="stylesheet" href="./assets/style.css" />
     <title>Weather</title>
 </head>
 
 <body>
 
-<div class="container">
-        <div class="title">weather app</div>
-   
-    <!-- LOCATION SEARCH -->
-    <div>
-        <input type="text" class="citySearch form-control col-2 " placeholder="Enter city name"
-            aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="goBtn btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+    <div class="title-container">
+        <div class="title">weather</div>
+
+        <!-- LOCATION SEARCH -->
+        <div>
+            <input type="text" class="citySearch form-control col-2 " placeholder="Enter city name"
+                aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="goBtn btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+        </div>
+
     </div>
 
-</div>
 
 
 
-    <div class="row">
-        <!-- SEARCH HISTORY -->
+    <!-- SEARCH HISTORY -->
 
-        <!-- <div class="list-group col-3 searchHistory"></div> -->
+    <!-- <div class="list-group col-3 searchHistory"></div> -->
 
 
-        <!-- CURRENT WEATHER -->
-        <div class=" col-9">
+    <!-- CURRENT WEATHER -->
+    <div class="weather-card">
+        
+        <div class="current-card">
             <h1 class="cityName"></h1>
-            <ul class="currentConditions" style="list-style-type:none;">
-                <li class="date"></li>
-                <li class="clouds"></li>
-                <li class="temp"></li>
-                <li class="humid"></li>
-                <li class="wind"></li>
-                <li class="uv"><span class="uvIndex"></span></li>
-            </ul>
+            <div class="currentConditions">
+                <div class="date"></div>
+                <div class="clouds"></div>
+                <div class="temp"></div>
+                <div class="humid"></div>
+                <div class="wind"></div>
+                <div class="uv"><span class="uvIndex"></span></div>
+            </div>
         </div>
+
 
 
         <!-- 5 DAY FORCAST -->
-        <div class="">
-            <div class="row">
-                <div class="col-sm">
-                    <h5 id="day1"></h5>
-                    <ul style="list-style-type:none;">
-                        <li id="day1-temp"></li>
-                        <li id="day1-clouds"></li>
-                        <li id="day1-humid"></li>
-                    </ul>
-                </div>
+        <div class="five-day-card">
 
-                <div class="">
-                    <h5 id="day2"></h5>
-                    <ul style="list-style-type:none;">
-                        <li id="day2-temp"></li>
-                        <li id="day2-clouds"></li>
-                        <li id="day2-humid"></li>
-                    </ul>
-                </div>
-                <div class="col-sm">
-                    <h5 id="day3"></h5>
-                    <ul style="list-style-type:none;">
-                        <li id="day3-temp"></li>
-                        <li id="day3-clouds"></li>
-                        <li id="day3-humid"></li>
-                    </ul>
-
-                </div>
-                <div class="col-sm">
-                    <h5 id="day4"></h5>
-                    <ul style="list-style-type:none;">
-                        <li id="day4-temp"></li>
-                        <li id="day4-clouds"></li>
-                        <li id="day4-humid"></li>
-                    </ul>
-
-                </div>
-                <div class="col-sm">
-                    <h5 id="day5"></h5>
-                    <ul style="list-style-type:none;">
-                        <li id="day5-temp"></li>
-                        <li id="day5-clouds"></li>
-                        <li id="day5-humid"></li>
-                    </ul>
-
+            <div class="day-card">
+                <h5 id="day1"></h5>
+                <div style="list-style-type:none;">
+                    <div id="day1-temp"></div>
+                    <div id="day1-clouds"></div>
+                    <div id="day1-humid"></div>
                 </div>
             </div>
+
+            <div class="day-card">
+                <h5 id="day2"></h5>
+                <div style="list-style-type:none;">
+                    <div id="day2-temp"></div>
+                    <div id="day2-clouds"></div>
+                    <div id="day2-humid"></div>
+                </div>
+            </div>
+            <div class="day-card">
+                <h5 id="day3"></h5>
+                <div style="list-style-type:none;">
+                    <div id="day3-temp"></div>
+                    <div id="day3-clouds"></div>
+                    <div id="day3-humid"></div>
+                </div>
+
+            </div>
+            <div class="day-card">
+                <h5 id="day4"></h5>
+                <div style="list-style-type:none;">
+                    <div id="day4-temp"></div>
+                    <div id="day4-clouds"></div>
+                    <div id="day4-humid"></div>
+                </div>
+
+            </div>
+            <div class="day-card">
+                <h5 id="day5"></h5>
+                <div style="list-style-type:none;">
+                    <div id="day5-temp"></div>
+                    <div id="day5-clouds"></div>
+                    <div id="day5-humid"></div>
+                </div>
+            </div>
+
         </div>
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
