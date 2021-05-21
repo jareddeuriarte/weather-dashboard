@@ -10,13 +10,11 @@ for(  var i =  0; i < searchCityList.length; i++ ){
     liTag.text(searchCityList[i])
     liTag.addClass("list-group-item list-group-item-action")
     $(".searchHistory").append(liTag)
-    console.log(liTag);
 }
 // retriving weather on   click  of li tags   
 $(".searchHistory").on("click", "li", function () {
     var liText = $(this).text()
     goBtn(liText);
-    console.log(liText)
 });
 
 
@@ -50,12 +48,11 @@ function goBtn(cityName){
         fetch(url)
             .then(function (response) {
                 $( ".clouds" ).empty();
+                $('.weather-card').addClass('weather-card-test')
+
                 return response.json();
             })
             .then(function (data) {
-                console.log(data)
-                // Not sure I need this below.
-                // weatherData = data
                 $(".cityName").html(data.name)
                 $(".date").html(moment.unix(data.dt).format("MMM Do, YYYY"))
                 //Creating an IMG TAG 
