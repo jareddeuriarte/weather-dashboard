@@ -47,8 +47,18 @@ function goBtn(cityName){
     // FIRST FETCH
         fetch(url)
             .then(function (response) {
+                //refreshing cloud icons
                 $( ".clouds" ).empty();
-                $('.weather-card').addClass('weather-card-test')
+
+                // adding the card styles via classes dynamically
+                $('.current-card').addClass('current-card-dynamic')
+                $('.five-day-card').addClass('five-day-card-dynamic')
+                $('.day-card').addClass('day-card-dynamic')
+
+                // creating and prepending headers for cards
+                $('.current-conditions-header').html('Current Conditions')
+                $('.forecast-header').html('5 Day Forecast')
+
 
                 return response.json();
             })

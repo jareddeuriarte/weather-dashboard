@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">    <link rel="stylesheet" href="./assets/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css" />
     <title>Weather</title>
 </head>
 
@@ -35,16 +36,19 @@
 
     <!-- CURRENT WEATHER -->
     <div class="weather-card">
-        
-        <div class="current-card">
-            <h1 class="cityName"></h1>
-            <div class="currentConditions">
-                <div class="date"></div>
-                <div class="clouds"></div>
-                <div class="temp"></div>
-                <div class="humid"></div>
-                <div class="wind"></div>
-                <div class="uv"><span class="uvIndex"></span></div>
+
+        <div class='current-wrapper'>
+            <h1 class='current-conditions-header'></h1>
+            <div class="current-card">
+                <h1 class="cityName"></h1>
+                <div class="currentConditions">
+                    <div class="date"></div>
+                    <div class="clouds"></div>
+                    <div class="temp"></div>
+                    <div class="humid"></div>
+                    <div class="wind"></div>
+                    <div class="uv"><span class="uvIndex"></span></div>
+                </div>
             </div>
         </div>
 
@@ -52,6 +56,8 @@
 
         <!-- 5 DAY FORCAST -->
         <div class="five-day-card">
+            <h1 class='forecast-header'></h1>
+
 
             <div class="day-card">
                 <h5 id="day1"></h5>
