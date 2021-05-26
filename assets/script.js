@@ -10,13 +10,11 @@ for(  var i =  0; i < searchCityList.length; i++ ){
     liTag.text(searchCityList[i])
     liTag.addClass("list-group-item list-group-item-action")
     $(".searchHistory").append(liTag)
-    console.log(liTag);
 }
 // retriving weather on   click  of li tags   
 $(".searchHistory").on("click", "li", function () {
     var liText = $(this).text()
     goBtn(liText);
-    console.log(liText)
 });
 
 
@@ -49,13 +47,22 @@ function goBtn(cityName){
     // FIRST FETCH
         fetch(url)
             .then(function (response) {
+                //refreshing cloud icons
                 $( ".clouds" ).empty();
+
+                // adding the card styles via classes dynamically
+                $('.current-card').addClass('current-card-dynamic')
+                $('.five-day-card').addClass('five-day-card-dynamic')
+                $('.day-card').addClass('day-card-dynamic')
+
+                // creating and prepending headers for cards
+                $('.current-conditions-header').html('current conditions')
+                $('.forecast-header').html('5 day forecast')
+
+
                 return response.json();
             })
             .then(function (data) {
-                console.log(data)
-                // Not sure I need this below.
-                // weatherData = data
                 $(".cityName").html(data.name)
                 $(".date").html(moment.unix(data.dt).format("MMM Do, YYYY"))
                 //Creating an IMG TAG 
@@ -108,44 +115,44 @@ function goBtn(cityName){
                         $("#day5").html(moment.unix(data2.daily[5].dt).format("MMM Do, YYYY"));
                         
                         // Day 1 Conditions
-                        $("#day1-temp").html("Temp: " + data2.daily[1].temp.day + " °F");
+                        $("#day1-temp").html("Temp: " + data2.daily[1].temp.day + "°F");
                         var img1 = $("<img>")
                         var iconurl = "http://openweathermap.org/img/w/" + data2.daily[1].weather[0].icon + ".png";
                         img1.attr('src', iconurl);
                         $("#day1-clouds").append(img1)
-                        $("#day1-humid").html("Humidity: " + data2.daily[1].humidity + " %")
+                        $("#day1-humid").html("Humidity: " + data2.daily[1].humidity + "%")
                         
                         //Day 2 Conditions
-                        $("#day2-temp").html("Temp: " + data2.daily[2].temp.day + " °F")
+                        $("#day2-temp").html("Temp: " + data2.daily[2].temp.day + "°F")
                         var img2 = $("<img>")
                         var iconurl = "http://openweathermap.org/img/w/" + data2.daily[2].weather[0].icon + ".png";
                         img2.attr('src', iconurl);
                         $("#day2-clouds").append(img2)
-                        $("#day2-humid").html("Humidity: " + data2.daily[2].humidity + " %")
+                        $("#day2-humid").html("Humidity: " + data2.daily[2].humidity + "%")
                         
                         // Day 3 Conditions
-                        $("#day3-temp").html("Temp: " + data2.daily[3].temp.day + " °F")
+                        $("#day3-temp").html("Temp: " + data2.daily[3].temp.day + "°F")
                         var img3 = $("<img>")
                         var iconurl = "http://openweathermap.org/img/w/" + data2.daily[3].weather[0].icon + ".png";
                         img3.attr('src', iconurl);
                         $("#day3-clouds").append(img3)
-                        $("#day3-humid").html("Humidity: " + data2.daily[3].humidity + " %")
+                        $("#day3-humid").html("Humidity: " + data2.daily[3].humidity + "%")
                         
                         // Day 4 Conditions
-                        $("#day4-temp").html("Temp: " + data2.daily[4].temp.day + " °F")
+                        $("#day4-temp").html("Temp: " + data2.daily[4].temp.day + "°F")
                         var img4 = $("<img>")
                         var iconurl = "http://openweathermap.org/img/w/" + data2.daily[4].weather[0].icon + ".png";
                         img4.attr('src', iconurl);
                         $("#day4-clouds").append(img4)
-                        $("#day4-humid").html("Humidity: " + data2.daily[4].humidity + " %")
+                        $("#day4-humid").html("Humidity: " + data2.daily[4].humidity + "%")
                         
                         //Day 5 Conditions
-                        $("#day5-temp").html("Temp: " + data2.daily[5].temp.day + " °F")
+                        $("#day5-temp").html("Temp: " + data2.daily[5].temp.day + "°F")
                         var img5 = $("<img>")
                         var iconurl = "http://openweathermap.org/img/w/" + data2.daily[5].weather[0].icon + ".png";
                         img5.attr('src', iconurl);
                         $("#day5-clouds").append(img5)
-                        $("#day5-humid").html("Humidity: " + data2.daily[5].humidity + " %")
+                        $("#day5-humid").html("Humidity: " + data2.daily[5].humidity + "%")
     
                     })
             });
