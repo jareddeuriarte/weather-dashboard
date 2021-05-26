@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/assets/images/favicon.png"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/style.css" />
-    <title>Weather</title>
+    <title>weather dash</title>
 </head>
 
 <body>
@@ -18,7 +19,7 @@
         <div class="title">weather</div>
 
         <!-- LOCATION SEARCH -->
-        <div>
+        <div class='search'>
             <input type="text" class="citySearch form-control col-2 " placeholder="Enter city name"
                 aria-label="Recipient's username" aria-describedby="button-addon2">
             <button class="goBtn btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
@@ -30,7 +31,6 @@
 
 
     <!-- SEARCH HISTORY -->
-
     <!-- <div class="list-group col-3 searchHistory"></div> -->
 
 
@@ -40,7 +40,7 @@
         <div class='current-wrapper'>
             <h1 class='current-conditions-header'></h1>
             <div class="current-card">
-                <h1 class="cityName"></h1>
+                <h2 class="cityName"></h2>
                 <div class="currentConditions">
                     <div class="date"></div>
                     <div class="clouds"></div>

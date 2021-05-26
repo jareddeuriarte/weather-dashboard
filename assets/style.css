@@ -8,42 +8,74 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
-
 .title{
     text-align: center;
     font-size: 2.5rem;
     padding: 0.9rem;
+    color: #fcc75d;
+    text-shadow: 2px 3px black;
+
+    
 }
 
 .title-container{
     display:flex;
-    /* background-color: rgba(255, 255, 255, .7); */
     margin: auto;
-    /* border-radius: 10px; */
     flex-direction: column;
     align-items: center;
-    /* padding: 2rem; */
-    /* box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, .4); */
-    /* max-width:fit-content; */
     justify-content: center;
     
 }
 
+input{
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: large;
+}
 
+.search{
+    display:flex;
+    flex-direction: row;
+}
+
+button {
+	box-shadow:inset 0px 1px 0px 0px #f7c5c0;
+	background:linear-gradient(to bottom, #fc8d83 5%, #e4685d 100%);
+	background-color:#fc8d83;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+}
+button:hover {
+	background:linear-gradient(to bottom, #e4685d 5%, #fc8d83 100%);
+	background-color:#e4685d;
+}
+button:active {
+	position:relative;
+	top:1px;
+}
 
 .weather-card{
     display:flex;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
     
 }
 
 .five-day-wrapper{
+    margin: 1em;
     max-width: 500px;
   
 }
-
 
 .current-card-dynamic{
     display:flex;
@@ -60,7 +92,6 @@ body {
     justify-content: space-around;
 }
 
-
 h5{
     font-size: 1rem;
     margin:auto;
@@ -68,6 +99,9 @@ h5{
 
 h1{
     text-align: center;
+    color: #fcc75d;
+    text-shadow: 2px 3px black;
+
 }
 
 .day-card-dynamic{
@@ -78,16 +112,10 @@ h1{
     padding:1em;
 }
 
-
-
-@media screen and (min-width: 375px) {
+@media screen and (max-width: 375px) {
     .weather-card{
         display: flex;
         flex-direction: column;
     }
-    
-    /* .five-day-card-dynamic {
-        display: flex;
-        flex-direction: row;
-} */
+
 }

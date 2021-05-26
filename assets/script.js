@@ -56,8 +56,8 @@ function goBtn(cityName){
                 $('.day-card').addClass('day-card-dynamic')
 
                 // creating and prepending headers for cards
-                $('.current-conditions-header').html('Current Conditions')
-                $('.forecast-header').html('5 Day Forecast')
+                $('.current-conditions-header').html('current conditions')
+                $('.forecast-header').html('5 day forecast')
 
 
                 return response.json();
